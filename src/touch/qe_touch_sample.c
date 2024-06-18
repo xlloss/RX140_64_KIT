@@ -102,13 +102,8 @@ void qe_touch_main(void)
                  INTENSITY_15,
                  SCAN_LIMIT_8);
 
-    //max7219_set_display_test(TEST_ON);
-    max7219_set_digit_bcd(DIGIT_0, 0, 0);
-    //max7219_set_digit_segment(DIGIT_0, 5, 1);
-    //max7219_set_digit_segment(DIGIT_1, SEG_F, 1);
-    //max7219_set_digit_segment(DIGIT_2, SEG_E, 1);
-    //max7219_set_digit_segment(DIGIT_3, SEG_B, 1);
 
+    max7219_set_digit_bcd(DIGIT_0, 0, 0);
     /* Main loop */
     while (true)
     {
