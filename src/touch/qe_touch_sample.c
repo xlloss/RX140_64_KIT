@@ -12,6 +12,7 @@
 #include "r_sci_rx_pinset.h"
 #endif
 #include "r_cg_userdefine.h"
+#include "Config_RTC.h"
 #include "max7219.h"
 #define TOUCH_SCAN_INTERVAL_EXAMPLE (20)    /* milliseconds */
 
@@ -70,10 +71,21 @@ void delay_us(unsigned int val)
 uint32_t loop_num = 0;
 uint8_t fun_key1[10] = {0};
 uint8_t index = 0, fun_key1_push_up_check = 0;
+rtc_calendarcounter_value_t rtc_read_val;
 
 void qe_touch_main(void)
 {
     fsp_err_t err;
+    rtc_calendarcounter_value_t rtv_write_val = {
+        .rseccnt =  0,
+        .rmincnt =  24,
+        .rhrcnt  =  14,
+        .rdaycnt =  18,
+        .rwkcnt  =  0,
+        .rmoncnt =  6,
+        .ryrcnt  =  23,
+
+    };
 
     /* Initialize pins (function created by Smart Configurator) */
     R_CTSU_PinSetInit();
@@ -85,6 +97,9 @@ void qe_touch_main(void)
 
 
 
+    R_Config_RTC_Set_CalendarCounterValue(rtv_write_val);
+    rtc_sec_notice_rigster(&rtc_read_val);
+    R_Config_RTC_Start();
 
     /* Open Touch middleware */
     err = RM_TOUCH_Open (g_qe_touch_instance_config01.p_ctrl, g_qe_touch_instance_config01.p_cfg);
@@ -102,30 +117,26 @@ void qe_touch_main(void)
                  INTENSITY_15,
                  SCAN_LIMIT_8);
 
+    rtc_display(rtc_read_val.rhrcnt, rtc_read_val.rmincnt, rtc_read_val.rseccnt);
 
-    max7219_set_digit_bcd(DIGIT_0, 0, 0);
     /* Main loop */
-    while (true)
-    {
+    while (true) {
 
         /* for [CONFIG01] configuration */
         err = RM_TOUCH_ScanStart (g_qe_touch_instance_config01.p_ctrl);
-        if (FSP_SUCCESS != err)
-        {
+        if (FSP_SUCCESS != err) {
             while (true) {}
         }
         while (0 == g_qe_touch_flag) {}
         g_qe_touch_flag = 0;
 
         err = RM_TOUCH_DataGet (g_qe_touch_instance_config01.p_ctrl, &button_status, NULL, NULL);
-        if (FSP_SUCCESS == err)
-        {
+        if (FSP_SUCCESS == err) {
             /* TODO: Add your own code here. */
         }
 
         if (button_status & CONFIG01_MASK_B1) {
             led(LED1, LED_ON);
-            //max7219_set_digit_segment(DIGIT_0, SEG_G, 1);
         } else if (button_status & CONFIG01_MASK_B3) {
             led(LED2, LED_ON);
         } else {
@@ -155,8 +166,11 @@ void qe_touch_main(void)
 
         if (fun_key1_push_up_check == 8 && fun_key1[0] == 1) {
             loop_num++;
-            max7219_set_digit_bcd(DIGIT_0, loop_num, 0);
         }
+
+        if (read_rtc_flag)
+            rtc_display(rtc_read_val.rhrcnt, rtc_read_val.rmincnt, rtc_read_val.rseccnt);
+
         /* FIXME: Since this is a temporary process, so re-create a waiting process yourself. */
         R_BSP_SoftwareDelay (TOUCH_SCAN_INTERVAL_EXAMPLE, BSP_DELAY_MILLISECS);
     }

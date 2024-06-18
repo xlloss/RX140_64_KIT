@@ -51,7 +51,7 @@
         <Item currentVect="88" id="LVD_LVD1" priority="15" usedState="Not Use"/>
         <Item currentVect="89" id="LVD_LVD2" priority="15" usedState="Not Use"/>
         <Item currentVect="92" id="RTC_ALM" priority="15" usedState="Used"/>
-        <Item currentVect="93" id="RTC_PRD" priority="15" usedState="Not Use"/>
+        <Item currentVect="93" id="RTC_PRD" priority="15" usedState="Used"/>
         <Item currentVect="102" id="S12AD_S12ADI0" priority="15" usedState="Not Use"/>
         <Item currentVect="103" id="S12AD_GBADI" priority="15" usedState="Not Use"/>
         <Item currentVect="106" id="ELC_ELSR18I" priority="15" usedState="Not Use"/>
@@ -135,17 +135,17 @@
         <Item currentVect="255" id="LPT_LPTCMI1" priority="15" usedState="Not Use"/>
     </tool>
     <tool id="Pins" version="1.0.1.0">
-        <pinItem allocation="5" comments="" direction="None" id="XCOUT" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="30" comments="" direction="None" id="TSCAP" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="42" comments="" direction="None" id="TS28" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="3" comments="" direction="None" id="FINED" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="18" comments="" direction="O" id="P16" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="19" comments="" direction="O" id="P15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="17" comments="" direction="O" id="P17" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="5" comments="" direction="None" id="XCOUT" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="29" comments="" direction="None" id="TS15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="58" comments="" direction="O" id="P41" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="60" comments="" direction="O" id="P40" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="53" comments="" direction="O" id="P46" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="18" comments="" direction="O" id="P16" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="19" comments="" direction="O" id="P15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="17" comments="" direction="O" id="P17" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="42" comments="" direction="None" id="TS28" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="4" comments="" direction="None" id="XCIN" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
     </tool>
     <tool id="Summary" version="1.0.0.0">
@@ -617,7 +617,7 @@
                 <option enabled="true" id="clockSource" selection="subclock">
                     <item id="subclock" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="hourmode" selection="12hourmode">
+                <option enabled="true" id="hourmode" selection="24hourmode">
                     <item id="12hourmode" input="" vlaue="0"/>
                     <item id="24hourmode" input="" vlaue="0"/>
                 </option>
@@ -956,11 +956,11 @@
                     <item id="62" input="" vlaue="0"/>
                     <item id="63" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="enablePRD" selection="uncheck">
+                <option enabled="true" id="enablePRD" selection="check">
                     <item id="uncheck" input="" vlaue="0"/>
                     <item id="check" input="" vlaue="0"/>
                 </option>
-                <option enabled="false" id="prdInterval" selection="1Second256">
+                <option enabled="true" id="prdInterval" selection="1Second">
                     <item id="1Second256" input="" vlaue="0"/>
                     <item id="1Second128" input="" vlaue="0"/>
                     <item id="1Second64" input="" vlaue="0"/>
@@ -972,7 +972,7 @@
                     <item id="1Second" input="" vlaue="0"/>
                     <item id="2Second" input="" vlaue="0"/>
                 </option>
-                <option enabled="false" id="prdPriority" selection="Level15">
+                <option enabled="true" id="prdPriority" selection="Level15">
                     <item id="Level0" input="" vlaue="0"/>
                     <item id="Level1" input="" vlaue="0"/>
                     <item id="Level2" input="" vlaue="0"/>

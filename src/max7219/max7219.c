@@ -275,3 +275,34 @@ void max7219_write(uint8_t const  addr, uint8_t const  data)
 
     }
 }
+
+void rtc_display(uint8_t h, uint8_t m, uint8_t s)
+{
+    #define RTC_SEC_01  DIGIT_0
+    #define RTC_SEC_10  DIGIT_1
+    #define RTC_MIN_01  DIGIT_2
+    #define RTC_MIN_10  DIGIT_3
+    #define RTC_HOUR_01 DIGIT_4
+    #define RTC_HOUR_10 DIGIT_5
+    uint8_t s_01, s_10;
+    uint8_t m_01, m_10;
+    uint8_t h_01, h_10;
+
+    s_01 = s & 0x0F;
+    s_10 = (s & 0xF0) >> 4;
+
+    m_01 = m % 10;
+    m_10 = m / 10;
+
+    h_01 = h % 10;
+    h_10 = h / 10;
+
+
+    max7219_set_digit_bcd(RTC_SEC_01, s_01, 1);
+    max7219_set_digit_bcd(RTC_SEC_10, s_10, 1);
+    max7219_set_digit_bcd(RTC_MIN_01, m_01, 1);
+    max7219_set_digit_bcd(RTC_MIN_10, m_10, 1);
+    max7219_set_digit_bcd(RTC_HOUR_01, h_01, 1);
+    max7219_set_digit_bcd(RTC_HOUR_10, h_10, 1);
+}
+
