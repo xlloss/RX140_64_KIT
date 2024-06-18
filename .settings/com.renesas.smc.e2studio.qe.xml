@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<QE>
+    <Segment id="Project">
+        <Setting id="SrcGeneratedPath" value="src/smc_gen"/>
+    </Segment>
+    <Segment id="Pin">
+        <Setting id="PC4" value="TSCAP"/>
+        <Setting id="PG7" value="FINED"/>
+        <Setting id="PA4" value="TS28"/>
+        <Setting id="P46" value="P46"/>
+        <Setting id="PC5" value="TS15"/>
+        <Setting id="P16" value="P16"/>
+        <Setting id="P15" value="P15"/>
+        <Setting id="P17" value="P17"/>
+        <Setting id="P41" value="P41"/>
+        <Setting id="P40" value="P40"/>
+    </Segment>
+    <Segment id="Device">
+        <Setting id="Series" value="RX100"/>
+        <Setting id="Group" value="RX140"/>
+        <Setting id="Board" value="Custom User Board"/>
+        <Setting id="PartNo" value="R5F51403AxFM"/>
+        <Setting id="PinCount" value="64"/>
+    </Segment>
+    <Segment id="Component">
+        <Setting id="rm_touch_qe" value="FIT"/>
+        <Setting id="r_bsp" value="FIT"/>
+        <Setting id="Config_PORT" value="CG"/>
+        <Setting id="r_ctsu_qe" value="FIT"/>
+        <Segment component="rm_touch_qe2.20" id="rm_touch_qe" source="com.renesas.smc.tools.swcomponent.fit.source">
+            <Setting id="TOUCH_CFG_PARAM_CHECKING_ENABLE" value="BSP_CFG_PARAM_CHECKING_ENABLE"/>
+            <Setting id="TOUCH_CFG_UART_TUNING_SUPPORT" value="0"/>
+            <Setting id="TOUCH_CFG_UART_NUMBER" value="0"/>
+            <Setting id="TOUCH_CFG_UART_MONITOR_SUPPORT" value="0"/>
+            <Setting id="TOUCH_CFG_UART_PRIORITY" value="1"/>
+            <Setting id="TOUCH_CFG_UART_BAUDRATE" value="115200"/>
+            <Setting id="TOUCH_CFG_CHATTERING_SUPPRESSION_TYPE" value="0"/>
+        </Segment>
+        <Segment component="r_bsp7.42" id="r_bsp" source="com.renesas.smc.tools.swcomponent.fit.source">
+            <Setting id="BSP_CFG_ID_CODE_LONG_4" value="0xFFFFFFFF"/>
+            <Setting id="BSP_CFG_SWINT_UNIT1_ENABLE" value="0"/>
+            <Setting id="BSP_CFG_ID_CODE_LONG_2" value="0xFFFFFFFF"/>
+            <Setting id="BSP_CFG_ID_CODE_LONG_3" value="0xFFFFFFFF"/>
+            <Setting id="BSP_CFG_USER_CHARPUT_FUNCTION" value="my_sw_charput_function"/>
+            <Setting id="BSP_CFG_SCI_UART_TERMINAL_BITRATE" value="115200"/>
+            <Setting id="BSP_CFG_SWINT_TASK_BUFFER_NUMBER" value="8"/>
+            <Setting id="BSP_CFG_USER_LOCKING_HW_UNLOCK_FUNCTION" value="my_hw_unlocking_function"/>
+            <Setting id="BSP_CFG_ID_CODE_LONG_1" value="0xFFFFFFFF"/>
+            <Setting id="BSP_CFG_USER_STACK_ENABLE" value="1"/>
+            <Setting id="BSP_CFG_SCI_UART_TERMINAL_ENABLE" value="0"/>
+            <Setting id="BSP_CFG_HOCO_TRIMMING_REG_VALUE" value="0"/>
+            <Setting id="BSP_CFG_INTERNAL_PERIPHERAL_BUS6_PRIORITY" value="0"/>
+            <Setting id="BSP_CFG_USER_LOCKING_SW_UNLOCK_FUNCTION" value="my_sw_unlocking_function"/>
+            <Setting id="BSP_CFG_USER_WARM_START_POST_C_FUNCTION" value="my_sw_warmstart_postc_function"/>
+            <Setting id="BSP_CFG_INTERNAL_PERIPHERAL_BUS2_3_PRIORITY" value="0"/>
+            <Setting id="BSP_CFG_MEMORY_BUS1_PRIORITY" value="0"/>
+            <Setting id="BSP_CFG_USER_CHARPUT_ENABLED" value="0"/>
+            <Setting id="BSP_CFG_SWINT_IPR_INITIAL_VALUE" value="0x1"/>
+            <Setting id="BSP_CFG_RUN_IN_USER_MODE" value="0"/>
+            <Setting id="BSP_CFG_USER_LOCKING_HW_LOCK_FUNCTION" value="my_hw_locking_function"/>
+            <Setting id="BSP_CFG_USER_WARM_START_PRE_C_FUNCTION" value="my_sw_warmstart_prec_function"/>
+            <Setting id="BSP_CFG_PARAM_CHECKING_ENABLE" value="1"/>
+            <Setting id="BSP_CFG_SCI_UART_TERMINAL_INTERRUPT_PRIORITY" value="15"/>
+            <Setting id="BSP_CFG_INTERNAL_PERIPHERAL_BUS1_PRIORITY" value="0"/>
+            <Setting id="BSP_CFG_USER_LOCKING_TYPE" value="bsp_lock_t"/>
+            <Setting id="BSP_CFG_HEAP_BYTES" value="0x400"/>
+            <Setting id="BSP_CFG_USER_WARM_START_CALLBACK_PRE_INITC_ENABLED" value="0"/>
+            <Setting id="BSP_CFG_HOCO_TRIMMING_ENABLE" value="0"/>
+            <Setting id="BSP_CFG_FIT_IPL_MAX" value="0xF"/>
+            <Setting id="BSP_CFG_BOOTLOADER_PROJECT" value="0"/>
+            <Setting id="BSP_CFG_USTACK_BYTES" value="0x400"/>
+            <Setting id="BSP_CFG_USER_LOCKING_SW_LOCK_FUNCTION" value="my_sw_locking_function"/>
+            <Setting id="BSP_CFG_ISTACK_BYTES" value="0x100"/>
+            <Setting id="BSP_CFG_SCI_UART_TERMINAL_CHANNEL" value="1"/>
+            <Setting id="BSP_CFG_MEMORY_BUS2_PRIORITY" value="0"/>
+            <Setting id="BSP_CFG_USER_LOCKING_ENABLED" value="0"/>
+            <Setting id="BSP_CFG_USER_CHARGET_ENABLED" value="0"/>
+            <Setting id="BSP_CFG_IO_LIB_ENABLE" value="1"/>
+            <Setting id="BSP_CFG_USER_CHARGET_FUNCTION" value="my_sw_charget_function"/>
+            <Setting id="BSP_CFG_BUS_PRIORITY_INITIALIZE_ENABLE" value="0"/>
+            <Setting id="BSP_CFG_USER_WARM_START_CALLBACK_POST_INITC_ENABLED" value="0"/>
+        </Segment>
+        <Segment component="com.renesas.smc.tools.swcomponent.codegenerator.port" id="Config_PORT" source="com.renesas.smc.tools.swcomponent.codegenerator.source">
+            <Setting id="UnuseOutput" value="NoChange"/>
+            <Segment id="PORTB_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTC_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx2_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT1_Check">
+                <Setting id="PortnEnable" value="Enable"/>
+            </Segment>
+            <Segment id="PORTG_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORT2_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT4_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                </Segment>
+                <Segment id="PORTx2_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT4_Check">
+                <Setting id="PortnEnable" value="Enable"/>
+            </Segment>
+            <Segment id="PORTJ_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT2_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORT0_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORT3_Chan">
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx2_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT0_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORTC_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTB_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORTJ_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORT5_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTA_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTG_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT3_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTA_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT1_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Setting id="OpendrainAll" value="CMOSAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx7_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx6_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Out"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Use"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORT5_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORTE_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTE_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx4_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx2_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                    <Setting id="Opendrain" value="CMOS"/>
+                </Segment>
+                <Segment id="PORTx5_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+            <Segment id="PORTH_Check">
+                <Setting id="PortnEnable" value="Disable"/>
+            </Segment>
+            <Segment id="PORTH_Chan">
+                <Setting id="Output1All" value="Output1UnuseAll"/>
+                <Setting id="UseStatusAll" value="UnuseAll"/>
+                <Setting id="ApplyAll" value="ApplyallUnuse"/>
+                <Setting id="PullupAll" value="PullupUnuseAll"/>
+                <Segment id="PORTx3_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx0_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx2_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+                <Segment id="PORTx1_Item">
+                    <Setting id="UseStatus" value="Unuse"/>
+                    <Setting id="Pullup" value="PullupUnuse"/>
+                    <Setting id="Output1" value="Output1Unuse"/>
+                </Segment>
+            </Segment>
+        </Segment>
+        <Segment component="r_ctsu_qe2.20" id="r_ctsu_qe" source="com.renesas.smc.tools.swcomponent.fit.source">
+            <Setting id="CTSU_CFG_PARAM_CHECKING_ENABLE" value="BSP_CFG_PARAM_CHECKING_ENABLE"/>
+            <Setting id="CTSU_CFG_INTCTSURD_PRIORITY_LEVEL" value="2"/>
+            <Setting id="CTSU_CFG_DTC_SUPPORT_ENABLE" value="0"/>
+            <Setting id="CTSU_CFG_INTCTSUFN_PRIORITY_LEVEL" value="2"/>
+            <Setting id="CTSU_CFG_INTCTSUWR_PRIORITY_LEVEL" value="2"/>
+            <Setting id="CTSU_CFG_AUTO_JUDGE_ENABLE" value="0"/>
+        </Segment>
+    </Segment>
+    <Segment id="Clock">
+        <Setting id="PCLKD" value="48000.0"/>
+        <Setting id="PCLKB" value="24000.0"/>
+        <Setting id="CacHocoCLK" value="48000.0"/>
+        <Setting id="VCC" value="3.3"/>
+        <Setting id="ICLK" value="48000.0"/>
+        <Setting id="FCLK" value="48000.0"/>
+        <Setting id="SysCLKSrc" value="1.0"/>
+        <Setting id="ExtCLK" value="8000.0"/>
+    </Segment>
+</QE>

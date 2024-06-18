@@ -1,0 +1,65 @@
+***** 2024/06/17 18:27:21 *****
+QE Version                                        :3.3.0.v20230526-0659
+Project Path                                      :C:\Users\slash\e2_studio\workspace_2024_01_01\RX140_64_KIT
+Configuration File                                :RX140_64_KIT
+IDE                                               :e2 studio with Emulator
+Emulator                                          :
+MCU                                               :RX140 R5F51403AxFM
+<< METHOD 0 >>
+[Button(self) 0]
+TS                                                : TS15,
+[Button(self) 2]
+TS                                                : TS28,
+
+<<<< Tuning Type : Normal >>>>
+System Clock Frequency (MHz)                      :48.000
+PCLKB Frequency (MHz)                             :24.000
+CTSU Operating Frequency (MHz)                    :24.000
+Operating Voltage (V)                             :3.300
+
+---------- Phase1 ----------
+<< METHOD 0 >>
+[TS15]
+Count Value                                       : 2907
+Resistance Value (ohm)                            : 560
+Parasitic Capacitance (pF)                        : 20.1875
+Sensor Drive Pulse Frequency (MHz)                : 2.0
+
+[TS28]
+Count Value                                       : 3226
+Resistance Value (ohm)                            : 560
+Parasitic Capacitance (pF)                        : 22.402779
+Sensor Drive Pulse Frequency (MHz)                : 2.0
+
+
+---------- Phase2 ----------
+<< METHOD 0 >>
+[TS15]
+Sensor Drive Pulse Frequency (MHz)                : 2.0
+CTSUSNUM                                          : 15
+CTSUSDPA                                          : 7
+CTSUSO                                            : 228
+
+[TS28]
+Sensor Drive Pulse Frequency (MHz)                : 2.0
+CTSUSNUM                                          : 15
+CTSUSDPA                                          : 7
+CTSUSO                                            : 273
+
+
+---------- Phase3 ----------
+<< METHOD 0 >>
+[Button(self) 0]
+  << TS15 >>
+  Count Value (Off)                               : 15456
+  Count Value (On)                                : 17122
+  Threshold                                       : 999
+  Hysteresis                                      : 49
+
+[Button(self) 2]
+  << TS28 >>
+  Count Value (Off)                               : 15462
+  Count Value (On)                                : 17836
+  Threshold                                       : 1424
+  Hysteresis                                      : 71
+
