@@ -50,7 +50,7 @@
         <Item currentVect="81" id="SYSTEM_SNZI" priority="15" usedState="Not Use"/>
         <Item currentVect="88" id="LVD_LVD1" priority="15" usedState="Not Use"/>
         <Item currentVect="89" id="LVD_LVD2" priority="15" usedState="Not Use"/>
-        <Item currentVect="92" id="RTC_ALM" priority="15" usedState="Not Use"/>
+        <Item currentVect="92" id="RTC_ALM" priority="15" usedState="Used"/>
         <Item currentVect="93" id="RTC_PRD" priority="15" usedState="Not Use"/>
         <Item currentVect="102" id="S12AD_S12ADI0" priority="15" usedState="Not Use"/>
         <Item currentVect="103" id="S12AD_GBADI" priority="15" usedState="Not Use"/>
@@ -135,16 +135,18 @@
         <Item currentVect="255" id="LPT_LPTCMI1" priority="15" usedState="Not Use"/>
     </tool>
     <tool id="Pins" version="1.0.1.0">
+        <pinItem allocation="5" comments="" direction="None" id="XCOUT" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="30" comments="" direction="None" id="TSCAP" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="42" comments="" direction="None" id="TS28" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="3" comments="" direction="None" id="FINED" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="18" comments="" direction="O" id="P16" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="19" comments="" direction="O" id="P15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="17" comments="" direction="O" id="P17" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="29" comments="" direction="None" id="TS15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="58" comments="" direction="O" id="P41" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="60" comments="" direction="O" id="P40" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
         <pinItem allocation="53" comments="" direction="O" id="P46" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
-        <pinItem allocation="42" comments="" direction="None" id="TS28" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="18" comments="" direction="O" id="P16" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="19" comments="" direction="O" id="P15" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="17" comments="" direction="O" id="P17" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
+        <pinItem allocation="4" comments="" direction="None" id="XCIN" isUsedBySoftware="true" locked="false" operationMode="" status="0"/>
     </tool>
     <tool id="Summary" version="1.0.0.0">
         <option id="com.renesas.smc.code.path" value="src\smc_gen"/>
@@ -603,10 +605,433 @@
             </allocator>
             <source description="Code generator components provide peripheral drivers with customized generated source geared towards small code size" display="Code Generator" id="com.renesas.smc.tools.swcomponent.codegenerator.source"/>
         </configuration>
+        <configuration apiMode="FULL_API" id="199f559b-c023-4cb9-a1f7-eb2ef9997685" inuse="true" name="Config_RTC">
+            <allocatable id="RTC">
+                <isocket id="cacsclk" selection="Clock.tool_clock_cacsclk" value="32768.0"/>
+                <isocket id="BSP_CFG_ICK_DIV" value="1"/>
+                <isocket id="BSP_CFG_SOSC_WAIT_TIME" value="0"/>
+                <isocket id="pclkb" selection="Clock.tool_clock_pclkb" value="2.4E7"/>
+                <isocket id="rtcclk" selection="Clock.tool_clock_rtcclk" value="32768.0"/>
+                <isocket id="iclk" selection="Clock.tool_clock_iclk" value="4.8E7"/>
+                <isocket id="cacmclk" selection="Clock.tool_clock_cacmclk" value="0.0"/>
+                <option enabled="true" id="clockSource" selection="subclock">
+                    <item id="subclock" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="hourmode" selection="12hourmode">
+                    <item id="12hourmode" input="" vlaue="0"/>
+                    <item id="24hourmode" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enablerealtimeinitvalue" selection="check">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="realtimeinitdatevalue" selection="dynamic">
+                    <item id="dynamic" input="2000,1,1" vlaue="0"/>
+                </option>
+                <option enabled="true" id="realtimeinittimevalue" selection="dynamic">
+                    <item id="dynamic" input="0,0,0" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enablertcout" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="clockfrequency" selection="1hz">
+                    <item id="1hz" input="" vlaue="0"/>
+                    <item id="64hz" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableALM" selection="check">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableYear" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="yearValue" selection="dynamic">
+                    <item id="dynamic" input="2000" vlaue="2000"/>
+                </option>
+                <option enabled="true" id="enableMonth" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="monthValue" selection="1">
+                    <item id="1" input="" vlaue="0"/>
+                    <item id="2" input="" vlaue="0"/>
+                    <item id="3" input="" vlaue="0"/>
+                    <item id="4" input="" vlaue="0"/>
+                    <item id="5" input="" vlaue="0"/>
+                    <item id="6" input="" vlaue="0"/>
+                    <item id="7" input="" vlaue="0"/>
+                    <item id="8" input="" vlaue="0"/>
+                    <item id="9" input="" vlaue="0"/>
+                    <item id="10" input="" vlaue="0"/>
+                    <item id="11" input="" vlaue="0"/>
+                    <item id="12" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableDate" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="dateValue" selection="1">
+                    <item id="1" input="" vlaue="0"/>
+                    <item id="2" input="" vlaue="0"/>
+                    <item id="3" input="" vlaue="0"/>
+                    <item id="4" input="" vlaue="0"/>
+                    <item id="5" input="" vlaue="0"/>
+                    <item id="6" input="" vlaue="0"/>
+                    <item id="7" input="" vlaue="0"/>
+                    <item id="8" input="" vlaue="0"/>
+                    <item id="9" input="" vlaue="0"/>
+                    <item id="10" input="" vlaue="0"/>
+                    <item id="11" input="" vlaue="0"/>
+                    <item id="12" input="" vlaue="0"/>
+                    <item id="13" input="" vlaue="0"/>
+                    <item id="14" input="" vlaue="0"/>
+                    <item id="15" input="" vlaue="0"/>
+                    <item id="16" input="" vlaue="0"/>
+                    <item id="17" input="" vlaue="0"/>
+                    <item id="18" input="" vlaue="0"/>
+                    <item id="19" input="" vlaue="0"/>
+                    <item id="20" input="" vlaue="0"/>
+                    <item id="21" input="" vlaue="0"/>
+                    <item id="22" input="" vlaue="0"/>
+                    <item id="23" input="" vlaue="0"/>
+                    <item id="24" input="" vlaue="0"/>
+                    <item id="25" input="" vlaue="0"/>
+                    <item id="26" input="" vlaue="0"/>
+                    <item id="27" input="" vlaue="0"/>
+                    <item id="28" input="" vlaue="0"/>
+                    <item id="29" input="" vlaue="0"/>
+                    <item id="30" input="" vlaue="0"/>
+                    <item id="31" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableDayofweek" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="dayofweekValue" selection="saturday">
+                    <item id="monday" input="" vlaue="0"/>
+                    <item id="tuesday" input="" vlaue="0"/>
+                    <item id="wednesday" input="" vlaue="0"/>
+                    <item id="thursday" input="" vlaue="0"/>
+                    <item id="friday" input="" vlaue="0"/>
+                    <item id="saturday" input="" vlaue="0"/>
+                    <item id="sunday" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableHour" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="hourValue" selection="dynamic">
+                    <item id="dynamic" input="0" vlaue="0"/>
+                </option>
+                <option enabled="false" id="ampmValue" selection="am">
+                    <item id="am" input="" vlaue="0"/>
+                    <item id="pm" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableMinute" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="minuteValue" selection="1">
+                    <item id="0" input="" vlaue="0"/>
+                    <item id="1" input="" vlaue="0"/>
+                    <item id="2" input="" vlaue="0"/>
+                    <item id="3" input="" vlaue="0"/>
+                    <item id="4" input="" vlaue="0"/>
+                    <item id="5" input="" vlaue="0"/>
+                    <item id="6" input="" vlaue="0"/>
+                    <item id="7" input="" vlaue="0"/>
+                    <item id="8" input="" vlaue="0"/>
+                    <item id="9" input="" vlaue="0"/>
+                    <item id="10" input="" vlaue="0"/>
+                    <item id="11" input="" vlaue="0"/>
+                    <item id="12" input="" vlaue="0"/>
+                    <item id="13" input="" vlaue="0"/>
+                    <item id="14" input="" vlaue="0"/>
+                    <item id="15" input="" vlaue="0"/>
+                    <item id="16" input="" vlaue="0"/>
+                    <item id="17" input="" vlaue="0"/>
+                    <item id="18" input="" vlaue="0"/>
+                    <item id="19" input="" vlaue="0"/>
+                    <item id="20" input="" vlaue="0"/>
+                    <item id="21" input="" vlaue="0"/>
+                    <item id="22" input="" vlaue="0"/>
+                    <item id="23" input="" vlaue="0"/>
+                    <item id="24" input="" vlaue="0"/>
+                    <item id="25" input="" vlaue="0"/>
+                    <item id="26" input="" vlaue="0"/>
+                    <item id="27" input="" vlaue="0"/>
+                    <item id="28" input="" vlaue="0"/>
+                    <item id="29" input="" vlaue="0"/>
+                    <item id="30" input="" vlaue="0"/>
+                    <item id="31" input="" vlaue="0"/>
+                    <item id="32" input="" vlaue="0"/>
+                    <item id="33" input="" vlaue="0"/>
+                    <item id="34" input="" vlaue="0"/>
+                    <item id="35" input="" vlaue="0"/>
+                    <item id="36" input="" vlaue="0"/>
+                    <item id="37" input="" vlaue="0"/>
+                    <item id="38" input="" vlaue="0"/>
+                    <item id="39" input="" vlaue="0"/>
+                    <item id="40" input="" vlaue="0"/>
+                    <item id="41" input="" vlaue="0"/>
+                    <item id="42" input="" vlaue="0"/>
+                    <item id="43" input="" vlaue="0"/>
+                    <item id="44" input="" vlaue="0"/>
+                    <item id="45" input="" vlaue="0"/>
+                    <item id="46" input="" vlaue="0"/>
+                    <item id="47" input="" vlaue="0"/>
+                    <item id="48" input="" vlaue="0"/>
+                    <item id="49" input="" vlaue="0"/>
+                    <item id="50" input="" vlaue="0"/>
+                    <item id="51" input="" vlaue="0"/>
+                    <item id="52" input="" vlaue="0"/>
+                    <item id="53" input="" vlaue="0"/>
+                    <item id="54" input="" vlaue="0"/>
+                    <item id="55" input="" vlaue="0"/>
+                    <item id="56" input="" vlaue="0"/>
+                    <item id="57" input="" vlaue="0"/>
+                    <item id="58" input="" vlaue="0"/>
+                    <item id="59" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableSecond" selection="check">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="secondValue" selection="0">
+                    <item id="0" input="" vlaue="0"/>
+                    <item id="1" input="" vlaue="0"/>
+                    <item id="2" input="" vlaue="0"/>
+                    <item id="3" input="" vlaue="0"/>
+                    <item id="4" input="" vlaue="0"/>
+                    <item id="5" input="" vlaue="0"/>
+                    <item id="6" input="" vlaue="0"/>
+                    <item id="7" input="" vlaue="0"/>
+                    <item id="8" input="" vlaue="0"/>
+                    <item id="9" input="" vlaue="0"/>
+                    <item id="10" input="" vlaue="0"/>
+                    <item id="11" input="" vlaue="0"/>
+                    <item id="12" input="" vlaue="0"/>
+                    <item id="13" input="" vlaue="0"/>
+                    <item id="14" input="" vlaue="0"/>
+                    <item id="15" input="" vlaue="0"/>
+                    <item id="16" input="" vlaue="0"/>
+                    <item id="17" input="" vlaue="0"/>
+                    <item id="18" input="" vlaue="0"/>
+                    <item id="19" input="" vlaue="0"/>
+                    <item id="20" input="" vlaue="0"/>
+                    <item id="21" input="" vlaue="0"/>
+                    <item id="22" input="" vlaue="0"/>
+                    <item id="23" input="" vlaue="0"/>
+                    <item id="24" input="" vlaue="0"/>
+                    <item id="25" input="" vlaue="0"/>
+                    <item id="26" input="" vlaue="0"/>
+                    <item id="27" input="" vlaue="0"/>
+                    <item id="28" input="" vlaue="0"/>
+                    <item id="29" input="" vlaue="0"/>
+                    <item id="30" input="" vlaue="0"/>
+                    <item id="31" input="" vlaue="0"/>
+                    <item id="32" input="" vlaue="0"/>
+                    <item id="33" input="" vlaue="0"/>
+                    <item id="34" input="" vlaue="0"/>
+                    <item id="35" input="" vlaue="0"/>
+                    <item id="36" input="" vlaue="0"/>
+                    <item id="37" input="" vlaue="0"/>
+                    <item id="38" input="" vlaue="0"/>
+                    <item id="39" input="" vlaue="0"/>
+                    <item id="40" input="" vlaue="0"/>
+                    <item id="41" input="" vlaue="0"/>
+                    <item id="42" input="" vlaue="0"/>
+                    <item id="43" input="" vlaue="0"/>
+                    <item id="44" input="" vlaue="0"/>
+                    <item id="45" input="" vlaue="0"/>
+                    <item id="46" input="" vlaue="0"/>
+                    <item id="47" input="" vlaue="0"/>
+                    <item id="48" input="" vlaue="0"/>
+                    <item id="49" input="" vlaue="0"/>
+                    <item id="50" input="" vlaue="0"/>
+                    <item id="51" input="" vlaue="0"/>
+                    <item id="52" input="" vlaue="0"/>
+                    <item id="53" input="" vlaue="0"/>
+                    <item id="54" input="" vlaue="0"/>
+                    <item id="55" input="" vlaue="0"/>
+                    <item id="56" input="" vlaue="0"/>
+                    <item id="57" input="" vlaue="0"/>
+                    <item id="58" input="" vlaue="0"/>
+                    <item id="59" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="almPriority" selection="Level15">
+                    <item id="Level0" input="" vlaue="0"/>
+                    <item id="Level1" input="" vlaue="0"/>
+                    <item id="Level2" input="" vlaue="0"/>
+                    <item id="Level3" input="" vlaue="0"/>
+                    <item id="Level4" input="" vlaue="0"/>
+                    <item id="Level5" input="" vlaue="0"/>
+                    <item id="Level6" input="" vlaue="0"/>
+                    <item id="Level7" input="" vlaue="0"/>
+                    <item id="Level8" input="" vlaue="0"/>
+                    <item id="Level9" input="" vlaue="0"/>
+                    <item id="Level10" input="" vlaue="0"/>
+                    <item id="Level11" input="" vlaue="0"/>
+                    <item id="Level12" input="" vlaue="0"/>
+                    <item id="Level13" input="" vlaue="0"/>
+                    <item id="Level14" input="" vlaue="0"/>
+                    <item id="Level15" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableAutoadjustment" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="adjustmentfrequency" selection="1minite">
+                    <item id="1minite" input="" vlaue="0"/>
+                    <item id="10second" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="adjustmentdirection" selection="plus">
+                    <item id="plus" input="" vlaue="0"/>
+                    <item id="minus" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="adjustmentnum" selection="1">
+                    <item id="1" input="" vlaue="0"/>
+                    <item id="2" input="" vlaue="0"/>
+                    <item id="3" input="" vlaue="0"/>
+                    <item id="4" input="" vlaue="0"/>
+                    <item id="5" input="" vlaue="0"/>
+                    <item id="6" input="" vlaue="0"/>
+                    <item id="7" input="" vlaue="0"/>
+                    <item id="8" input="" vlaue="0"/>
+                    <item id="9" input="" vlaue="0"/>
+                    <item id="10" input="" vlaue="0"/>
+                    <item id="11" input="" vlaue="0"/>
+                    <item id="12" input="" vlaue="0"/>
+                    <item id="13" input="" vlaue="0"/>
+                    <item id="14" input="" vlaue="0"/>
+                    <item id="15" input="" vlaue="0"/>
+                    <item id="16" input="" vlaue="0"/>
+                    <item id="17" input="" vlaue="0"/>
+                    <item id="18" input="" vlaue="0"/>
+                    <item id="19" input="" vlaue="0"/>
+                    <item id="20" input="" vlaue="0"/>
+                    <item id="21" input="" vlaue="0"/>
+                    <item id="22" input="" vlaue="0"/>
+                    <item id="23" input="" vlaue="0"/>
+                    <item id="24" input="" vlaue="0"/>
+                    <item id="25" input="" vlaue="0"/>
+                    <item id="26" input="" vlaue="0"/>
+                    <item id="27" input="" vlaue="0"/>
+                    <item id="28" input="" vlaue="0"/>
+                    <item id="29" input="" vlaue="0"/>
+                    <item id="30" input="" vlaue="0"/>
+                    <item id="31" input="" vlaue="0"/>
+                    <item id="32" input="" vlaue="0"/>
+                    <item id="33" input="" vlaue="0"/>
+                    <item id="34" input="" vlaue="0"/>
+                    <item id="35" input="" vlaue="0"/>
+                    <item id="36" input="" vlaue="0"/>
+                    <item id="37" input="" vlaue="0"/>
+                    <item id="38" input="" vlaue="0"/>
+                    <item id="39" input="" vlaue="0"/>
+                    <item id="40" input="" vlaue="0"/>
+                    <item id="41" input="" vlaue="0"/>
+                    <item id="42" input="" vlaue="0"/>
+                    <item id="43" input="" vlaue="0"/>
+                    <item id="44" input="" vlaue="0"/>
+                    <item id="45" input="" vlaue="0"/>
+                    <item id="46" input="" vlaue="0"/>
+                    <item id="47" input="" vlaue="0"/>
+                    <item id="48" input="" vlaue="0"/>
+                    <item id="49" input="" vlaue="0"/>
+                    <item id="50" input="" vlaue="0"/>
+                    <item id="51" input="" vlaue="0"/>
+                    <item id="52" input="" vlaue="0"/>
+                    <item id="53" input="" vlaue="0"/>
+                    <item id="54" input="" vlaue="0"/>
+                    <item id="55" input="" vlaue="0"/>
+                    <item id="56" input="" vlaue="0"/>
+                    <item id="57" input="" vlaue="0"/>
+                    <item id="58" input="" vlaue="0"/>
+                    <item id="59" input="" vlaue="0"/>
+                    <item id="60" input="" vlaue="0"/>
+                    <item id="61" input="" vlaue="0"/>
+                    <item id="62" input="" vlaue="0"/>
+                    <item id="63" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enablePRD" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="prdInterval" selection="1Second256">
+                    <item id="1Second256" input="" vlaue="0"/>
+                    <item id="1Second128" input="" vlaue="0"/>
+                    <item id="1Second64" input="" vlaue="0"/>
+                    <item id="1Second32" input="" vlaue="0"/>
+                    <item id="1Second16" input="" vlaue="0"/>
+                    <item id="1Second8" input="" vlaue="0"/>
+                    <item id="1Second4" input="" vlaue="0"/>
+                    <item id="1Second2" input="" vlaue="0"/>
+                    <item id="1Second" input="" vlaue="0"/>
+                    <item id="2Second" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="prdPriority" selection="Level15">
+                    <item id="Level0" input="" vlaue="0"/>
+                    <item id="Level1" input="" vlaue="0"/>
+                    <item id="Level2" input="" vlaue="0"/>
+                    <item id="Level3" input="" vlaue="0"/>
+                    <item id="Level4" input="" vlaue="0"/>
+                    <item id="Level5" input="" vlaue="0"/>
+                    <item id="Level6" input="" vlaue="0"/>
+                    <item id="Level7" input="" vlaue="0"/>
+                    <item id="Level8" input="" vlaue="0"/>
+                    <item id="Level9" input="" vlaue="0"/>
+                    <item id="Level10" input="" vlaue="0"/>
+                    <item id="Level11" input="" vlaue="0"/>
+                    <item id="Level12" input="" vlaue="0"/>
+                    <item id="Level13" input="" vlaue="0"/>
+                    <item id="Level14" input="" vlaue="0"/>
+                    <item id="Level15" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="enableCUP" selection="uncheck">
+                    <item id="uncheck" input="" vlaue="0"/>
+                    <item id="check" input="" vlaue="0"/>
+                </option>
+                <option enabled="false" id="cupPriority" selection="Level15">
+                    <item id="Level0" input="" vlaue="0"/>
+                    <item id="Level1" input="" vlaue="0"/>
+                    <item id="Level2" input="" vlaue="0"/>
+                    <item id="Level3" input="" vlaue="0"/>
+                    <item id="Level4" input="" vlaue="0"/>
+                    <item id="Level5" input="" vlaue="0"/>
+                    <item id="Level6" input="" vlaue="0"/>
+                    <item id="Level7" input="" vlaue="0"/>
+                    <item id="Level8" input="" vlaue="0"/>
+                    <item id="Level9" input="" vlaue="0"/>
+                    <item id="Level10" input="" vlaue="0"/>
+                    <item id="Level11" input="" vlaue="0"/>
+                    <item id="Level12" input="" vlaue="0"/>
+                    <item id="Level13" input="" vlaue="0"/>
+                    <item id="Level14" input="" vlaue="0"/>
+                    <item id="Level15" input="" vlaue="0"/>
+                </option>
+                <option enabled="true" id="countmode" selection="calendar">
+                    <item id="calendar" input="" vlaue="0"/>
+                    <item id="binary" input="" vlaue="0"/>
+                </option>
+            </allocatable>
+            <component description="This software component provides configurations for Real Time Clock (RTC).&#10;&#10;RTC has two types of counting modes: calendar count mode and binary count mode. They are used by switching the register settings." detailDescription="" display="Real Time Clock" id="com.renesas.smc.tools.swcomponent.codegenerator.rtc" version="1.8.0"/>
+            <allocator channelLevel0="" channelLevel1="" channelLevel2="" channelLevel3="" channelLevel4="" channelLevel5="" description="Real Time Clock" display="RTC" id="com.renesas.smc.swc.cg.rx140.rtc" type="RTC">
+                <context>
+                    <option enabled="true" id="countmode" selection="calendar">
+                        <item enabled="true" id="binary"/>
+                        <item enabled="true" id="calendar"/>
+                    </option>
+                </context>
+            </allocator>
+            <source description="Code generator components provide peripheral drivers with customized generated source geared towards small code size" display="Code Generator" id="com.renesas.smc.tools.swcomponent.codegenerator.source"/>
+        </configuration>
     </tool>
     <tool id="Clock">
         <option enabled="true" id="vccinput" selection="textinputitem">
-            <item enabled="true" id="textinputitem" input="3.3" value="3.3"/>
+            <item enabled="true" id="textinputitem" input="3.3" value="3.300"/>
         </option>
         <option enabled="true" id="mainclockenable" selection="uncheck">
             <item enabled="true" id="check"/>
@@ -617,7 +1042,7 @@
             <item enabled="true" id="srcEOI"/>
         </option>
         <option enabled="false" id="mainfrequency" selection="textinputitem">
-            <item enabled="true" id="textinputitem" input="8" value="8"/>
+            <item enabled="true" id="textinputitem" input="8" value="8.000000"/>
         </option>
         <option enabled="false" id="mainwaitcycle" selection="sBox8192">
             <item enabled="true" id="sBox0"/>
@@ -633,14 +1058,14 @@
         <option enabled="false" id="mainwaittime" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="2048"/>
         </option>
-        <option enabled="true" id="subclockenable" selection="uncheck">
+        <option enabled="true" id="subclockenable" selection="check">
             <item enabled="true" id="check"/>
             <item enabled="true" id="uncheck"/>
         </option>
-        <option enabled="false" id="subfrequency" selection="textinputitem">
+        <option enabled="true" id="subfrequency" selection="textinputitem">
             <item enabled="true" id="textinputitem" input="" value="32.768"/>
         </option>
-        <option enabled="false" id="subdrivecap" selection="standardCL">
+        <option enabled="true" id="subdrivecap" selection="standardCL">
             <item enabled="true" id="standardCL"/>
             <item enabled="true" id="highCL"/>
             <item enabled="true" id="mediumCL"/>
@@ -698,23 +1123,23 @@
             <item enabled="true" id="mul12-1"/>
         </option>
         <option enabled="true" id="sckswitcher" selection="hoco">
-            <item enabled="false" id="pll" input="" value="24"/>
-            <item enabled="false" id="main" input="" value="8"/>
-            <item enabled="false" id="sub" input="" value="0.032768"/>
+            <item enabled="false" id="pll" input="" value="24.0"/>
+            <item enabled="false" id="main" input="" value="8.0"/>
+            <item enabled="true" id="sub" input="" value="0.032768"/>
             <item enabled="true" id="hoco" input="" value="48"/>
             <item enabled="false" id="loco" input="" value="4"/>
         </option>
         <option enabled="true" id="ckoswitcher" selection="ckohoco">
-            <item enabled="false" id="ckopll" input="" value="24"/>
-            <item enabled="false" id="ckomain" input="" value="8"/>
-            <item enabled="false" id="ckosub" input="" value="0.032768"/>
+            <item enabled="false" id="ckopll" input="" value="24.0"/>
+            <item enabled="false" id="ckomain" input="" value="8.0"/>
+            <item enabled="true" id="ckosub" input="" value="0.032768"/>
             <item enabled="true" id="ckohoco" input="" value="48"/>
             <item enabled="false" id="ckoloco" input="" value="4"/>
             <item enabled="true" id="ckoctsu"/>
         </option>
         <option enabled="true" id="lptswitcher" selection="lptsub">
             <item enabled="false" id="lptloco" input="" value="1000"/>
-            <item enabled="false" id="lptsub" input="" value="32.768"/>
+            <item enabled="true" id="lptsub" input="" value="32.768"/>
             <item enabled="false" id="lptiwdt" input="" value="15"/>
         </option>
         <option enabled="true" id="fclkdivider" selection="comboBox1-1">
@@ -775,7 +1200,7 @@
         <option enabled="true" id="pclkd" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="48"/>
         </option>
-        <option enabled="false" id="lptclk" selection="textoutputitem">
+        <option enabled="true" id="lptclk" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="32.768"/>
         </option>
         <option enabled="true" id="clkoutenable" selection="uncheck">
@@ -794,17 +1219,17 @@
         <option enabled="true" id="cachclk" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="48"/>
         </option>
-        <option enabled="false" id="cacsclk" selection="textoutputitem">
+        <option enabled="true" id="cacsclk" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="32.768"/>
         </option>
         <option enabled="false" id="cacmclk" selection="textoutputitem">
-            <item enabled="true" id="textoutputitem" input="" value="8"/>
+            <item enabled="true" id="textoutputitem" input="" value="8.0"/>
         </option>
-        <option enabled="false" id="rtcsclkenable" selection="uncheck">
+        <option enabled="true" id="rtcsclkenable" selection="check">
             <item enabled="true" id="check"/>
             <item enabled="true" id="uncheck"/>
         </option>
-        <option enabled="false" id="rtcsclk" selection="textoutputitem">
+        <option enabled="true" id="rtcsclk" selection="textoutputitem">
             <item enabled="true" id="textoutputitem" input="" value="32.768"/>
         </option>
     </tool>
