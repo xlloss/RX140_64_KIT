@@ -99,10 +99,10 @@ static void r_Config_RTC_prd_interrupt(void)
     /* End user code. Do not edit comment generated here */
 }
 
+/* Start user code for adding. Do not edit comment generated here */
 void rtc_sec_notice_rigster(rtc_calendarcounter_value_t *rtc_data)
 {
     read_rtc = rtc_data;
 }
 
-/* Start user code for adding. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
