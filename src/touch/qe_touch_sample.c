@@ -101,7 +101,7 @@ void qe_touch_main(void)
     R_Config_RTC_Set_CalendarCounterValue(rtv_write_val);
     rtc_sec_notice_rigster(&rtc_read_val);
     R_Config_RTC_Start();
-
+    R_Config_MTU0_7SEC_DISP_Start();
     /* Open Touch middleware */
     err = RM_TOUCH_Open (g_qe_touch_instance_config01.p_ctrl, g_qe_touch_instance_config01.p_cfg);
     if (FSP_SUCCESS != err)
@@ -188,9 +188,6 @@ void qe_touch_main(void)
         } else if (fun_key2_push_up_check == 8 && fun_key2[0] == 1) {
             loop_num_key2++;
         }
-
-        if (read_rtc_flag)
-            rtc_display(rtc_read_val.rhrcnt, rtc_read_val.rmincnt, rtc_read_val.rseccnt);
 
         /* FIXME: Since this is a temporary process, so re-create a waiting process yourself. */
         R_BSP_SoftwareDelay (TOUCH_SCAN_INTERVAL_EXAMPLE, BSP_DELAY_MILLISECS);
