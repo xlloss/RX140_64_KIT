@@ -68,9 +68,10 @@ void delay_us(unsigned int val)
 	R_BSP_SoftwareDelay(val, BSP_DELAY_MICROSECS);
 }
 
-uint32_t loop_num = 0;
-uint8_t fun_key1[10] = {0};
-uint8_t index = 0, fun_key1_push_up_check = 0;
+uint32_t loop_num_key1 = 0;
+uint32_t loop_num_key2 = 0;
+uint8_t fun_key1[10] = {0}, fun_key2[10] = {0};
+uint8_t index = 0, fun_key1_push_up_check = 0, fun_key2_push_up_check = 0;
 rtc_calendarcounter_value_t rtc_read_val;
 
 void qe_touch_main(void)
@@ -155,17 +156,37 @@ void qe_touch_main(void)
         fun_key1[1] = fun_key1[0];
         fun_key1[0] = (button_status & CONFIG01_MASK_B1) >> CONFIG01_INDEX_B1;
 
-        for (index = 1; index < 9; index++) {
+        fun_key2[9] = fun_key2[8];
+        fun_key2[8] = fun_key2[7];
+        fun_key2[7] = fun_key2[6];
+        fun_key2[6] = fun_key2[5];
+        fun_key2[5] = fun_key2[4];
+        fun_key2[4] = fun_key2[3];
+        fun_key2[3] = fun_key2[2];
+        fun_key2[2] = fun_key2[1];
+        fun_key2[1] = fun_key2[0];
+        fun_key2[0] = (button_status & CONFIG01_MASK_B3) >> CONFIG01_INDEX_B3;
+
+        for (index = 1; index < 5; index++) {
             if (fun_key1[index] == 1)
                 fun_key1_push_up_check++;
             else {
-                index = 9;
+                index = 5;
                 fun_key1_push_up_check = 0;
+            }
+
+            if (fun_key2[index] == 1)
+                fun_key2_push_up_check++;
+            else {
+                index = 5;
+                fun_key2_push_up_check = 0;
             }
         }
 
         if (fun_key1_push_up_check == 8 && fun_key1[0] == 1) {
-            loop_num++;
+            loop_num_key1++;
+        } else if (fun_key2_push_up_check == 8 && fun_key2[0] == 1) {
+            loop_num_key2++;
         }
 
         if (read_rtc_flag)
