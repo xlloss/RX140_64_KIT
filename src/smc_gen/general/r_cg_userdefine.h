@@ -2,15 +2,15 @@
 * DISCLAIMER
 * This software is supplied by Renesas Electronics Corporation and is only intended for use with Renesas products.
 * No other uses are authorized. This software is owned by Renesas Electronics Corporation and is protected under all
-* applicable laws, including copyright laws. 
+* applicable laws, including copyright laws.
 * THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING THIS SOFTWARE, WHETHER EXPRESS, IMPLIED
 * OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 * NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY
 * LAW, NEITHER RENESAS ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE FOR ANY DIRECT,
 * INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR
 * ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-* Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability 
-* of this software. By using this software, you agree to the additional terms and conditions found by accessing the 
+* Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability
+* of this software. By using this software, you agree to the additional terms and conditions found by accessing the
 * following link:
 * http://www.renesas.com/disclaimer
 *
@@ -32,6 +32,7 @@ Includes
 ***********************************************************************************************************************/
 /* Start user code for include. Do not edit comment generated here */
 #include "Config_RTC.h"
+#include "max7219.h"
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -81,8 +82,9 @@ void serial_write(int ctl_io, int val);
 void led(uint8_t led_n, uint8_t led_v);
 void rtc_sec_notice_rigster(rtc_calendarcounter_value_t *rtc_data);
 void rtc_display(uint8_t h, uint8_t m, uint8_t s);
+void max7219_set_intensity(enum max7219_intensities const intensity);
+void R_Config_MTU0_7SEC_DISP_Start(void);
 extern uint32_t read_rtc_flag;
-extern unsigned int read_rtc_flag;
 extern rtc_calendarcounter_value_t rtc_read_val;
 /* End user code. Do not edit comment generated here */
 #endif
