@@ -43,7 +43,9 @@ Includes
 Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
-unsigned int read_rtc_flag = 1;
+uint32_t read_rtc_flag = 1;
+uint32_t enable_rtc_flashing = 0;
+uint8_t led_7sec_flashing = 0;
 rtc_calendarcounter_value_t *read_rtc;
 /* End user code. Do not edit comment generated here */
 
@@ -96,6 +98,16 @@ static void r_Config_RTC_prd_interrupt(void)
     read_rtc_flag = 0;
     R_Config_RTC_Get_CalendarCounterValue(read_rtc);
     read_rtc_flag = 1;
+
+    if (enable_rtc_flashing) {
+        if (led_7sec_flashing)
+            max7219_set_intensity(INTENSITY_0);
+        else
+            max7219_set_intensity(INTENSITY_15);
+
+        led_7sec_flashing = led_7sec_flashing ^ 1;
+    }
+
     /* End user code. Do not edit comment generated here */
 }
 
@@ -105,4 +117,13 @@ void rtc_sec_notice_rigster(rtc_calendarcounter_value_t *rtc_data)
     read_rtc = rtc_data;
 }
 
+void rtc_enable_flashing()
+{
+    enable_rtc_flashing = 1;
+}
+
+void rtc_disable_flashing()
+{
+    enable_rtc_flashing = 0;
+}
 /* End user code. Do not edit comment generated here */
