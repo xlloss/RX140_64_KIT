@@ -117,7 +117,6 @@ void qe_touch_main(void)
                  0xFF,
                  INTENSITY_15,
                  SCAN_LIMIT_8);
-
     rtc_display(rtc_read_val.rhrcnt, rtc_read_val.rmincnt, rtc_read_val.rseccnt);
 
     /* Main loop */
@@ -188,9 +187,6 @@ void qe_touch_main(void)
         } else if (fun_key2_push_up_check == 8 && fun_key2[0] == 1) {
             loop_num_key2++;
         }
-
-        /* FIXME: Since this is a temporary process, so re-create a waiting process yourself. */
-        R_BSP_SoftwareDelay (TOUCH_SCAN_INTERVAL_EXAMPLE, BSP_DELAY_MILLISECS);
     }
 }
 
