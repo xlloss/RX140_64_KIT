@@ -59,11 +59,18 @@ uint16_t slider_position[TOUCH_CFG_NUM_SLIDERS];
 uint16_t wheel_position[TOUCH_CFG_NUM_WHEELS];
 #endif
 
+enum {
+    WORK_STAGE_NORMAL = 0,
+    WORK_STAGE_RTC_AJUST,
+    WORK_STAGE_REMOTE_CTL,
+};
+
 uint32_t loop_num_key1 = 0;
 uint32_t loop_num_key2 = 0;
 uint8_t fun_key1[10] = {0}, fun_key2[10] = {0};
 uint8_t index = 0, fun_key1_push_up_check = 0, fun_key2_push_up_check = 0;
 rtc_calendarcounter_value_t rtc_read_val;
+uint8_t current_work_stage = WORK_STAGE_NORMAL;
 
 void delay_us(unsigned int val)
 {
