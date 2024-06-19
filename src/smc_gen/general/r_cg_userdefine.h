@@ -64,6 +64,12 @@ enum
     LED2,
 };
 
+enum {
+    WORK_STAGE_NORMAL = 0,
+    WORK_STAGE_RTC_AJUST,
+    WORK_STAGE_REMOTE_CTL,
+};
+
 #define LED_ON  1
 #define LED_OFF 0
 /* End user code. Do not edit comment generated here */
@@ -84,6 +90,7 @@ void rtc_sec_notice_rigster(rtc_calendarcounter_value_t *rtc_data);
 void rtc_display(uint8_t h, uint8_t m, uint8_t s);
 void max7219_set_intensity(enum max7219_intensities const intensity);
 void R_Config_MTU0_7SEC_DISP_Start(void);
+void mode_display(uint8_t mode);
 extern uint32_t read_rtc_flag;
 extern rtc_calendarcounter_value_t rtc_read_val;
 /* End user code. Do not edit comment generated here */

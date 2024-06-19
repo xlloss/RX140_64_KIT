@@ -276,6 +276,38 @@ void max7219_write(uint8_t const  addr, uint8_t const  data)
     }
 }
 
+void mode_display(uint8_t mode)
+{
+    #define MODE_SHOW_00 DIGIT_6
+    #define MODE_SHOW_01 DIGIT_7
+
+    switch (mode) {
+    case WORK_STAGE_NORMAL:
+        max7219_set_digit_bcd(MODE_SHOW_00, WORK_STAGE_NORMAL, 1);
+        max7219_set_digit_bcd(MODE_SHOW_01, 0, 1);
+        break;
+
+    case WORK_STAGE_RTC_AJUST:
+        /*
+        max7219_set_digit_bcd(MODE_SHOW_00, WORK_STAGE_RTC_AJUST, 1);
+        max7219_set_digit_bcd(MODE_SHOW_01, 0, 1);
+        */
+        max7219_set_display_test(TEST_ON);
+        break;
+
+
+    case WORK_STAGE_REMOTE_CTL:
+        max7219_set_display_test(TEST_OFF);
+        max7219_set_digit_bcd(MODE_SHOW_00, WORK_STAGE_REMOTE_CTL, 1);
+        max7219_set_digit_bcd(MODE_SHOW_01, 0, 1);
+        break;
+
+    default:
+    break;
+
+    }
+}
+
 void rtc_display(uint8_t h, uint8_t m, uint8_t s)
 {
     #define RTC_SEC_01  DIGIT_0

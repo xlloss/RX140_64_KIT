@@ -124,6 +124,7 @@ void rtc_enable_flashing()
 
 void rtc_disable_flashing()
 {
+    max7219_set_intensity(INTENSITY_15);
     enable_rtc_flashing = 0;
 }
 /* End user code. Do not edit comment generated here */

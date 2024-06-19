@@ -59,16 +59,11 @@ uint16_t slider_position[TOUCH_CFG_NUM_SLIDERS];
 uint16_t wheel_position[TOUCH_CFG_NUM_WHEELS];
 #endif
 
-enum {
-    WORK_STAGE_NORMAL = 0,
-    WORK_STAGE_RTC_AJUST,
-    WORK_STAGE_REMOTE_CTL,
-};
-
 uint32_t loop_num_key1 = 0;
 uint32_t loop_num_key2 = 0;
 uint8_t fun_key1[10] = {0}, fun_key2[10] = {0};
 uint8_t index = 0, fun_key1_push_up_check = 0, fun_key2_push_up_check = 0;
+uint8_t led_7sec_enable = 1;
 rtc_calendarcounter_value_t rtc_read_val;
 uint8_t current_work_stage = WORK_STAGE_NORMAL;
 
@@ -122,6 +117,7 @@ void qe_touch_main(void)
                  SCAN_LIMIT_8);
     rtc_display(rtc_read_val.rhrcnt, rtc_read_val.rmincnt, rtc_read_val.rseccnt);
 
+    mode_display(WORK_STAGE_NORMAL);
     /* Main loop */
     while (true) {
 
@@ -187,9 +183,36 @@ void qe_touch_main(void)
 
         if (fun_key1_push_up_check == 8 && fun_key1[0] == 1) {
             loop_num_key1++;
+            led_7sec_enable ^= 1;
+            if (led_7sec_enable)
+                max7219_set_mode(MODE_NORMAL);
+            else
+                max7219_set_mode(MODE_SHUTDOWN);
         } else if (fun_key2_push_up_check == 8 && fun_key2[0] == 1) {
             loop_num_key2++;
+            current_work_stage++;
+            current_work_stage = current_work_stage % 3;
+            switch (current_work_stage) {
+            case WORK_STAGE_NORMAL:
+                rtc_disable_flashing();
+                mode_display(WORK_STAGE_NORMAL);
+                break;
+
+            case WORK_STAGE_RTC_AJUST:
+                /* rtc_enable_flashing(); */
+                mode_display(WORK_STAGE_RTC_AJUST);
+                break;
+
+            case WORK_STAGE_REMOTE_CTL:
+                rtc_enable_flashing();
+                mode_display(WORK_STAGE_REMOTE_CTL);
+                break;
+
+            default:
+                break;
+            }
         }
+
     }
 }
 
